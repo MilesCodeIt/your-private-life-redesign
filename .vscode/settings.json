@@ -1,0 +1,9 @@
+{
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2
+}

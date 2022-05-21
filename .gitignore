@@ -1,0 +1,13 @@
+# Dependencies
+node_modules
+
+# Production
+dist
+build
+
+# Variables
+.env*
+!.env.sample
+
+# Vercel
+.vercel_build_output
