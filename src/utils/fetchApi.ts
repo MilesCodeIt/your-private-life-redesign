@@ -45,7 +45,7 @@ const fetchApi = async <B, R>(
 
     return {
       success: false,
-      message: "Une erreur inconnue est surevenue côté client, veuillez réessayer."
+      message: "Une erreur inconnue est survenue côté client, veuillez réessayer."
     };
   }
 }

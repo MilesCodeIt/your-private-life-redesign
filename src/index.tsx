@@ -1,12 +1,12 @@
 /* @refresh reload */
 import "./styles/tailwind.css";
 
-import { Component, Show, onMount, createSignal } from "solid-js";
+import { Component, Show } from "solid-js";
 import { render } from "solid-js/web";
 
 import InitialLoadSetup from "@/components/InitialLoadSetup";
 import MainRouter from "@/components/MainRouter";
-import { useUserStore } from "@/stores/user";
+import appStore from "@/stores/app";
 
 /**
  * Ce composant permet d'établir les états
@@ -14,11 +14,11 @@ import { useUserStore } from "@/stores/user";
  * d'introduire le routeur.
  */
 const Main: Component = () => {
-  const user = useUserStore(state => state.informations);
+  const { app } = appStore;
 
   return (
     <Show
-      when={user.is_authenticated}
+      when={app.initialLoadFinished}
       fallback={<InitialLoadSetup />}
     >
       <MainRouter />

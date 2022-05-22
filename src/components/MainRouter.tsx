@@ -10,7 +10,6 @@ import Error404           from "@/pages/404";
 import DesktopPage        from "@/pages/desktop";
 import AuthenticationPage from "@/pages/authentication";
 
-
 const MainRouter: Component = () => (
   <SolidRouter>
     <Routes>

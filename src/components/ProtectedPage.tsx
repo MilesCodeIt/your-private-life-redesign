@@ -1,22 +1,23 @@
-import type { Component } from "solid-js";
-import { Show } from "solid-js";
+import type { ParentComponent, Component } from "solid-js";
+import { Show, children as access_children } from "solid-js";
 
-import { useUserStore } from "@/stores/user";
+import userStore from "@/stores/user";
 import { Navigate } from "solid-app-router";
 
 /**
  * Ce component permet de vérifier si l'utilisateur
  * est connecté avant qu'il accède au contenu de la page.
  */
-const ProtectedPage: Component = ({ children }) => {
-  const user = useUserStore(state => state.informations);
+const ProtectedPage: ParentComponent = (props) => {
+  const children = access_children(() => props.children);
+  const { user } = userStore;
 
   return (
     <Show
       when={user.is_authenticated}
       fallback={<Navigate href="/authentication" />}
     >
-      {children}
+      {children()}
     </Show>
   )
 }

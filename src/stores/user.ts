@@ -1,27 +1,38 @@
-import create from "solid-zustand";
+import { createStore } from "solid-js/store";
 
-interface UserInformations {
-  is_authenticated: true;
-  username: string;
-}
+interface UnauthenticatedUserStore {
+  is_authenticated: false;  
 
-interface UserStore {
-  informations: UserInformations | { is_authenticated: false };
-  setInformations: (informations: UserInformations) => void;
+  username: null;
+  email: null;
   
-  /** Niveaux que l'utilisateur a complété, ou non. */
-  levels: {
-    [id: string]: boolean;
-  }
+  levels: null;
 }
 
-export const useUserStore = create<UserStore>(set => ({
-  informations: { is_authenticated: false },
+export interface AuthenticatedUserStore {
+  is_authenticated: true;
 
-  setInformations: (informations) => {
-    set(() => ({ informations }));
-  },
+  username: string;
+  email: string;
 
-  levels: {}
-}));
+  /** Niveaux que l'utilisateur a complété, ou non. */
+  levels: Map<string, boolean>;
+}
 
+export const defaultUserStore: UnauthenticatedUserStore = {
+  is_authenticated: false,
+  
+  username: null,
+  email: null,
+  
+  levels: null
+}
+
+const [user, setUser] = createStore<
+  | UnauthenticatedUserStore
+  | AuthenticatedUserStore
+>(defaultUserStore);
+
+export default {
+  user, setUser
+};
