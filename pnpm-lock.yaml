@@ -10,7 +10,7 @@ specifiers:
   cookie-parser: ^1.4.6
   dotenv: ^16.0.1
   express: ^4.18.1
-  got-cjs: ^12.0.1
+  got-cjs: ^12.0.4
   jsonwebtoken: ^8.5.1
   ky: ^0.30.0
   mongoose: ^6.3.3
@@ -28,7 +28,7 @@ dependencies:
   bcryptjs: 2.4.3
   cookie-parser: 1.4.6
   express: 4.18.1
-  got-cjs: 12.0.1
+  got-cjs: 12.0.4
   jsonwebtoken: 8.5.1
   ky: 0.30.0
   mongoose: 6.3.4
@@ -1493,8 +1493,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /got-cjs/12.0.1:
-    resolution: {integrity: sha512-tRcTpee77XR9PNOp2Pu1P/XD67zkdeaBJ8kFz90for9dDTg6tqQKe64ORPbxFnB0mECKB+PQKCTcvJJdhv265g==}
+  /got-cjs/12.0.4:
+    resolution: {integrity: sha512-dnbXGRnjOhpdvE5jWMTUgdvqFD9uyCD4H18ZVUj+hPR0QLKKMRGb6Cp+b49yek5d29vGgMMJ0RtgD97UU8S5Tw==}
     engines: {node: '>=12'}
     dependencies:
       '@sindresorhus/is': 4.6.0
