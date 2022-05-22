@@ -4,7 +4,7 @@ import { getDatabaseConnection } from "@/database";
 import User from "@/database/models/User";
 
 import bcrypt from "bcryptjs";
-import got, { HTTPError } from "got";
+import got, { HTTPError } from "got-cjs";
 
 export interface SignUpRequestBody {
   captcha: string;
