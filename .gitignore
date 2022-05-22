@@ -11,3 +11,4 @@ build
 
 # Vercel
 .vercel_build_output
+.vercel
