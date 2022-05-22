@@ -1,11 +1,13 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
-import mix, { vercelAdapter } from "vite-plugin-mix";
+import mix_raw, { vercelAdapter } from "vite-plugin-mix";
+
+const mix = mix_raw as typeof mix_raw & { default: typeof mix_raw };
 
 export default defineConfig({
   plugins: [
-    mix({
+    mix.default({
       handler:  resolve(__dirname, "src/api/index.ts"),
       adapter: vercelAdapter()
     }),
@@ -15,8 +17,14 @@ export default defineConfig({
   
   build: {
     target: "esnext",
-    polyfillDynamicImport: false
-  },
+    polyfillDynamicImport: false,
+     rollupOptions: {
+       output: {
+         format: "es"
+       }
+     }
+   },
+
 
   resolve: {
     alias: {
