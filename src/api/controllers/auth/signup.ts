@@ -4,7 +4,6 @@ import { getDatabaseConnection } from "@/database";
 import User from "@/database/models/User";
 
 import bcrypt from "bcryptjs";
-import got, { HTTPError } from "got-cjs";
 
 export interface SignUpRequestBody {
   captcha: string;
@@ -44,6 +43,10 @@ export const post: ApiRoute<
 
     return;
   }
+
+  // Import dynamique de la librairie `got` pour éviter les
+  // problèmes avec ESM et Vercel.
+  const { default: got, HTTPError } = await import("got");
 
   try {
     // On récupère les données du captcha.
